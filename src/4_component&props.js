@@ -1,7 +1,5 @@
 import React from "react";
 
-function Welcome(props) {
+export function Welcome(props) {
   return <h1>Hello,{props.name} </h1>;
 }
-
-export const custElement = <Welcome name="Gaurav" />;

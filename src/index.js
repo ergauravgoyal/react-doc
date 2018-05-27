@@ -4,13 +4,25 @@ import "./index.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import { element, element2 } from "./2_formatName";
-import { custElement } from "./4_component&props";
+import { Welcome } from "./4_component&props";
+import { Comment, comment } from "./5_extractingComponents";
+
 ReactDOM.render(<App />, document.getElementById("root"));
 ReactDOM.render(<h1>Hello World</h1>, document.getElementById("helloWorld"));
 
 ReactDOM.render(element, document.getElementById("name"));
 ReactDOM.render(element2, document.getElementById("stranger"));
-ReactDOM.render(custElement, document.getElementById("custElement"));
+
+function CustElement() {
+  return (
+    <div>
+      <Welcome name="Gaurav Goyal" />
+      <Welcome name="Tejas Garg" />
+    </div>
+  );
+}
+
+ReactDOM.render(<CustElement />, document.getElementById("custElement"));
 function tick() {
   const element = (
     <div>
@@ -21,4 +33,10 @@ function tick() {
   ReactDOM.render(element, document.getElementById("clockExample"));
 }
 setInterval(tick, 1000);
+
+ReactDOM.render(
+  <Comment date={comment.date} text={comment.text} author={comment.author} />,
+  document.getElementById("commentElement")
+);
+
 registerServiceWorker();
