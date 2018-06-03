@@ -6,6 +6,8 @@ import registerServiceWorker from "./registerServiceWorker";
 import { element, element2 } from "./2_formatName";
 import { Welcome } from "./4_component&props";
 import { Comment, comment } from "./5_extractingComponents";
+import { Clock } from "./6_state&lifecycle";
+import { Toggle } from "./7_handlingEvents";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 ReactDOM.render(<h1>Hello World</h1>, document.getElementById("helloWorld"));
@@ -23,7 +25,8 @@ function CustElement() {
 }
 
 ReactDOM.render(<CustElement />, document.getElementById("custElement"));
-function tick() {
+
+/*function tick() {
   const element = (
     <div>
       <h1>Hello World</h1>
@@ -32,8 +35,27 @@ function tick() {
   );
   ReactDOM.render(element, document.getElementById("clockExample"));
 }
-setInterval(tick, 1000);
+setInterval(tick, 1000);*/
+/*
+function Clock(props) {
+  return (
+    <div>
+      <h1>Hello World</h1>
+      <h2>It is {props.date.toLocaleTimeString()}</h2>
+    </div>
+  );
+}
 
+function tick() {
+  ReactDOM.render(
+    <Clock date={new Date()} />,
+    document.getElementById("clockExample")
+  );
+}
+setInterval(tick, 1000);
+*/
+ReactDOM.render(<Clock />, document.getElementById("clockExample"));
+ReactDOM.render(<Toggle />, document.getElementById("toggleElement"));
 ReactDOM.render(
   <Comment date={comment.date} text={comment.text} author={comment.author} />,
   document.getElementById("commentElement")
