@@ -8,6 +8,7 @@ import { Welcome } from "./4_component&props";
 import { Comment, comment } from "./5_extractingComponents";
 import { Clock } from "./6_state&lifecycle";
 import { Toggle } from "./7_handlingEvents";
+import { ParentComponent } from "./myParentComponent";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 ReactDOM.render(<h1>Hello World</h1>, document.getElementById("helloWorld"));
@@ -60,5 +61,8 @@ ReactDOM.render(
   <Comment date={comment.date} text={comment.text} author={comment.author} />,
   document.getElementById("commentElement")
 );
-
+ReactDOM.render(
+  <ParentComponent />,
+  document.getElementById("parentChildCommunication")
+);
 registerServiceWorker();
